@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trend | e-commerce Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <img src="images/logo.png" width="125px" />
+          </div>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="produtos.html">Produtos</a></li>
+              <li><a href="sobre.html">Sobre</a></li>
+              <li><a href="#" onclick="acessarConta()">Conta</a></li>
+            </ul>
+          </nav>
+          <a href="carrinho.html"
+            ><img
+              src="images/cart.png"
+              alt="Carrinho de compras"
+              style="cursor: pointer"
+              width="30px"
+              height="30px"
+          /></a>
+          <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <h1>
+              Seu estilo <br />
+              nossa Trend
+            </h1>
+            <p>
+              Nós criamos uma conexão com você através das roupas, pois entendemos e valorizamos sua
+              individualidade. Aqui unimos a autenticidade ao que há de mais atual no mundo da moda. Vai
+              ficar de fora dessa trend?
+            </p>
+            <a href="produtos.html" class="btn"> Explore as opções &#8594;</a>
+          </div>
+          <div class="col-2">
+            <img src="images/image2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------produtos------->
+    <div class="small-container">
+        <section class="produtos-destaque">
+          <h2 class="title">Alguns produtos</h2>
+          <div class="produtos-grid" id="produtos-destaque"></div>
+        </section>
+
+        <section class="produtos-recentes">
+          <h2 class="title">Produtos recentes</h2>
+          <div class="produtos-grid" id="produtos-recentes"></div>
+        </section>
+    </div>
+
+    <!-------ofertas------->
+    <div class="offer">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/smartband3.png" class="offer-img" />
+          </div>
+          <div class="col-2">
+            <p>Disponivel só na Trend</p>
+            <h1>Smart Band 9</h1>
+            <small>
+              A Xiaomi Smart Band 9 apresenta um design de tela em forma de pílula dentro de um retângulo
+              padrão. Medido de acordo com o retângulo, o comprimento diagonal da tela é de 1,62
+              polegadas.
+            </small>
+            <a href="#" class="btn" id="compre-ja">Compre já &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------rodapé------->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <img src="images/logo-white.png" />
+            <p>Celebramos sua autenticidade transformando seu estilo em uma tendência</p>
+          </div>
+          <div class="footer-col-2">
+            <h3>siga-nos</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>twitter</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      function acessarConta() {
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+        if (usuario && usuario.email) {
+          window.location.href = "conta.html";
+        } else {
+          window.location.href = "Login.html";
+        }
+      }
+    </script>
+    <script src="scripts/produtos-index.js"></script>
+    <script src="scripts/menutoggle.js"></script>
+  </body>
+</html>

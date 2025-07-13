@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Seu Carrinho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" width="125px" /></a>
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="#" onclick="acessarConta()">Conta</a></li>
+        </ul>
+      </nav>
+      <a href="carrinho.html"><img src="images/cart.png" alt="Carrinho de compras" style="cursor: pointer;" width="30px" height="30px" /></a>
+      <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+    </div>
+  </div>
+
+  <div class="carrinho-container">
+    <h2 class="title">Carrinho de Compras</h2>
+    <div id="itens-carrinho" class="row"></div>
+    <div class="carrinho-total">
+      <h3 id="total">Total: R$ 0,00</h3>
+      <button class="btn" onclick="finalizarCompra()">Finalizar Compra</button>
+      <button class="btn-danger" onclick="limparCarrinho()">Limpar Carrinho</button>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <img src="images/logo-white.png" />
+          <p>Celebramos sua autenticidade transformando seu estilo em uma tendência</p>
+        </div>
+        <div class="footer-col-2">
+          <h3>siga-nos</h3>
+          <ul>
+            <li>Facebook</li>
+            <li>twitter</li>
+            <li>Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function acessarConta() {
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (usuario && usuario.email) {
+        window.location.href = "conta.html";
+    } else {
+        window.location.href = "Login.html";
+    }
+    }
+  </script>
+  <script src="scripts/carrinho.js"></script>
+  <script>  
+    function menutoggle() {
+      const menuItems = document.getElementById("MenuItems");
+      menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" || menuItems.style.maxHeight === "" ? "200px" : "0px";
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarCarrinho);
+  </script>
+</body>
+</html>    

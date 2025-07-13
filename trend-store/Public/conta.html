@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minha Conta - Trend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" width="125px" /></a>
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+      </nav>
+      <a href="carrinho.html"><img src="images/cart.png" alt="Carrinho de compras" style="cursor: pointer;" width="30px" height="30px" /></a>
+      <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="small-container">
+    <h2 class="title">Histórico de Compras</h2>
+    <div id="historico-compras" class="row"></div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <img src="images/logo-white.png" />
+          <p>Celebramos sua autenticidade transformando seu estilo em uma tendência</p>
+        </div>
+        <div class="footer-col-2">
+          <h3>siga-nos</h3>
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+      async function carregarCompras() {
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+        if (!usuario || !usuario.email) {
+          alert("Você precisa estar logado.");
+          window.location.href = "Login.html";
+          return;
+        }
+
+        try {
+          const res = await fetch("/api/compras?email=" + encodeURIComponent(usuario.email));
+          const data = await res.json();
+
+          const container = document.getElementById("historico-compras");
+          container.innerHTML = "";
+
+          if (!res.ok || !Array.isArray(data)) {
+            container.innerHTML = "<p>Erro ao carregar compras.</p>";
+            return;
+          }
+
+          if (data.length === 0) {
+            container.innerHTML = "<p style='margin: 40px auto;'>Você ainda não fez nenhuma compra.</p>";
+            return;
+          }
+
+          data.forEach(pedido => {
+            const div = document.createElement("div");
+            div.className = "col-4";
+
+            const dataPedido = pedido.data
+              ? new Date(pedido.data).toLocaleString()
+              : "Data desconhecida";
+
+            div.innerHTML = `
+              <div class="carrinho-produto">
+                <h3>
+                  <a href="pedido.html?id=${encodeURIComponent(pedido.data)}">
+                    Pedido em ${dataPedido}
+                  </a>
+                </h3>
+                <ul style="margin-top: 10px; font-size: 14px;">
+                  ${pedido.produtos.map(p => `
+                    <li>${p.nome} | Tamanho: <strong>${p.tamanho}</strong> | Quantidade: ${p.quantidade}</li>
+                  `).join("")}
+                </ul>
+              </div>
+            `;
+            container.appendChild(div);
+          });
+
+        } catch (erro) {
+          console.error("Erro ao carregar compras:", erro);
+          document.getElementById("historico-compras").innerHTML = "<p>Erro ao carregar dados.</p>";
+        }
+  }
+
+    function logout() {
+      if (confirm("Deseja sair da sua conta?")) {
+        localStorage.removeItem("usuarioLogado");
+        window.location.href = "index.html";
+      }
+    }
+
+    function menutoggle() {
+      const menuItems = document.getElementById("MenuItems");
+      menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" || menuItems.style.maxHeight === "" ? "200px" : "0px";
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarCompras);
+  </script>
+</body>
+</html>
