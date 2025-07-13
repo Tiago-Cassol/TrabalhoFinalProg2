@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre - Trend</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="125px" />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#" onclick="acessarConta()">Conta</a></li>
+          </ul>
+        </nav>
+        <a href="carrinho.html"><img src="images/cart.png" alt="Carrinho de compras" style="cursor: pointer;" width="30px" height="30px" /></a>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+        <img
+          src="images/menu.png"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
+      </div>
+    </div>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <div class="sobre-container">
+      <h1>Quem somos</h1>
+      <p>
+        A Trend é mais do que uma loja, é uma experiência de moda. Criamos uma
+        conexão verdadeira com você por meio das roupas, valorizando sua
+        identidade e estilo próprio. Estamos aqui para transformar a sua
+        autenticidade em tendência.
+      </p>
+
+      <h3>Missão</h3>
+      <p>
+        Inspirar confiança através da moda acessível, confortável e autêntica.
+      </p>
+
+      <h3>Visão</h3>
+      <p>Ser referência nacional em estilo urbano e moderno.</p>
+
+      <h3>Valores</h3>
+      <ul>
+        <li>Respeito à individualidade</li>
+        <li>Criatividade com propósito</li>
+        <li>Qualidade e acessibilidade</li>
+      </ul>
+    </div>
+
+    <!-- RODAPÉ -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <img src="images/logo-white.png" />
+            <p>
+              Celebramos sua autenticidade transformando seu estilo em uma
+              tendência
+            </p>
+          </div>
+          <div class="footer-col-2">
+            <h3>siga-nos</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+          
+    <!-------js pro menu dar toggle------->
+    <script src="scripts/menutoggle.js"></script>
+    <script>
+      function acessarConta() {
+      const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+      if (usuario && usuario.email) {
+          window.location.href = "conta.html";
+      } else {
+          window.location.href = "Login.html";
+      }
+      }
+   </script>
+  </body>
+</html>

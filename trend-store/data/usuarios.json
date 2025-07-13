@@ -1,0 +1,19 @@
+[
+  {
+    "email": "tiago-cassol@hotmail.com",
+    "senha": "algo",
+    "nome": "Tiago Cassol"
+  },
+  {
+    "email": "cassoltiago2014@gmail.com",
+    "senha": "algo2",
+    "nome": "Tiago Cassol",
+    "aniversario": "2000-12-11",
+    "cpf": "124.521.632-56"
+  },
+  {
+    "email": "admin@admin.com",
+    "senha": "$2b$10$nNCEE90RgXs/6Jz76Z/nmeOLWyR/dFqVsQwv9KwIIjETsff4/afOa",
+    "admin": true
+  }
+]

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalhes do Pedido</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" width="125px" /></a>
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="#" onclick="acessarConta()">Conta</a></li>
+        </ul>
+      </nav>
+      <a href="carrinho.html"><img src="images/cart.png" alt="Carrinho de compras" style="cursor: pointer;" width="30px" height="30px" /></a>
+      <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+    </div>
+  </div>
+
+  <!-- Conteúdo do Pedido -->
+  <div class="carrinho-container">
+    <h2 class="title">Detalhes do Pedido</h2>
+    <div id="itens-pedido" class="row"></div>
+    <div class="carrinho-total">
+      <h3 id="total">Total: R$ 0,00</h3>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <img src="images/logo-white.png" />
+          <p>Celebramos sua autenticidade transformando seu estilo em uma tendência</p>
+        </div>
+        <div class="footer-col-2">
+          <h3>siga-nos</h3>
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function acessarConta() {
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (usuario && usuario.email) {
+        window.location.href = "conta.html";
+    } else {
+        window.location.href = "Login.html";
+    }
+    }
+  </script>
+  <script>
+    async function carregarPedido() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+      if (!usuario || !usuario.email) {
+        alert("Você precisa estar logado.");
+        window.location.href = "Login.html";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/compras?email=" + encodeURIComponent(usuario.email));
+        const pedidos = await res.json();
+
+        const pedido = pedidos.find(p => p.data === id);
+
+        if (!pedido) {
+          document.getElementById("itens-pedido").innerHTML = "<p>Pedido não encontrado.</p>";
+          return;
+        }
+
+        const container = document.getElementById("itens-pedido");
+        let total = 0;
+        container.innerHTML = "";
+
+        pedido.produtos.forEach(prod => {
+          const preco = parseFloat(prod.preco.replace("R$", "").replace(",", "."));
+          const subtotal = preco * prod.quantidade;
+          total += subtotal;
+
+          const produtoHTML = `
+            <div class="carrinho-produto">
+              <img src="${prod.imagem}" alt="${prod.nome}">
+              <h4>${prod.nome}</h4>
+              <p>Tamanho: <strong>${prod.tamanho}</strong></p>
+              <p>Quantidade: ${prod.quantidade}</p>
+              <p>Subtotal: R$${subtotal.toFixed(2).replace(".", ",")}</p>
+            </div>
+          `;
+          container.innerHTML += produtoHTML;
+        });
+
+        document.getElementById("total").innerText = "Total: R$ " + total.toFixed(2).replace(".", ",");
+      } catch (error) {
+        console.error("Erro ao carregar pedido:", error);
+        alert("Erro ao carregar pedido.");
+      }
+    }
+
+    function menutoggle() {
+      const menuItems = document.getElementById("MenuItems");
+      menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" || menuItems.style.maxHeight === "" ? "200px" : "0px";
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarPedido);
+  </script>
+</body>
+</html>

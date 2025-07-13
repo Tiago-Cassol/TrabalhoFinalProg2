@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Produtos - Trend</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </head>
+    <body>
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="images/logo.png" width="125px" />
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="produtos.html">Produtos</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="#" onclick="acessarConta()">Conta</a></li>
+                        </ul>
+                    </nav>
+                    <a href="carrinho.html"><img src="images/cart.png" alt="Carrinho de compras" style="cursor: pointer;" width="30px" height="30px" /></a>
+                    <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+                </div>
+            </div>
+
+        <div class="small-container">
+            <button id="btnAdicionarProduto" class="btn" style="display: none;">Adicionar Produto</button>
+           <div class="row row-2">
+               <h2>Nossos Produtos</h2>
+                <select id="filtro-produtos">
+                  <option value="relevancia">Classificar por Relevância</option>
+                  <option value="vendas">Classificar por Vendas</option>
+                  <option value="baixo">Classificar por Preço Mais Baixo</option>
+                  <option value="alto">Classificar por Preço Mais Alto</option>
+                  <option value="avaliacoes">Classificar por Avaliações</option>
+                </select>
+           </div>
+           <div class="row" id="lista-produtos"></div>
+            <div class="page-btn" id="pagination">
+                <span data-page="1">1</span>
+                <span data-page="2">2</span>
+                <span data-page="3">3</span>
+                <span data-page="4">4</span>
+                <span id="next-page">&#8594;</span>
+            </div>
+        </div>
+        
+
+        <div id="modalProduto" class="modal" style="display: none;">
+          <div class="modal-content">
+            <h3>Adicionar Novo Produto</h3>
+            <input type="text" id="novoNome" placeholder="Nome do Produto" required>
+            <input type="text" id="novoPreco" placeholder="Preço (ex: 129.90)" required>
+            <input type="file" id="novoImagem" multiple required>
+            <input type="text" id="novoDescricao" placeholder="Descrição" required>
+            <button onclick="salvarProduto()" class="btn">Salvar</button>
+            <button onclick="fecharModal()" class="btn-danger">Cancelar</button>
+          </div>
+        </div>
+            
+        <!-------rodapé------->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <img src="images/logo-white.png" />
+                        <p>Celebramos sua autenticidade transformando seu estilo em uma tendência</p>
+                    </div>
+                    <div class="footer-col-2">
+                        <h3>siga-nos</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>twitter</li>
+                            <li>Instagram</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>       
+       
+        <script>
+            function acessarConta() {
+            const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+            if (usuario && usuario.email) {
+                window.location.href = "conta.html";
+            } else {
+                window.location.href = "Login.html";
+            }
+            }
+        </script>
+
+        <!-------js pra aba de produtos------->
+        <script src="scripts/produto.js"></script>
+        <!-------js pro menu dar toggle------->
+        <script src="scripts/menutoggle.js"></script>
+
+    </body>
+</html>
