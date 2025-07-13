@@ -1,0 +1,195 @@
+[
+  {
+    "id": 1,
+    "nome": "Camiseta Puma Vermelha",
+    "preco": 293.76,
+    "imagem": "images/product-1.jpg",
+    "descricao": "Camiseta leve e estilosa, ideal para o dia a dia.",
+    "galeria": [
+      "images/camisa_puma1.jpg",
+      "images/camisa_puma2.jpg",
+      "images/camisa_puma3.jpg",
+      "images/camisa_puma4.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Tênis de Caminhada Adidas",
+    "preco": 146.82,
+    "imagem": "images/product-2.jpg",
+    "descricao": "Tênis confortável, perfeito para corridas ou caminhadas.",
+    "galeria": [
+      "images/tenis_adidas1.png",
+      "images/tenis_adidas2.png",
+      "images/tenis_adidas3.png",
+      "images/tenis_adidas4.png"
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Óculos unisex Chilli Beans",
+    "preco": 299.91,
+    "imagem": "images/oculoschilli1.png",
+    "descricao": "Óculos moderno com proteção UV, ideal para qualquer ocasião.",
+    "galeria": [
+      "images/oculoschilli1.png",
+      "images/oculoschilli2.png",
+      "images/oculoschilli3.png"
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Tênis Puma Anos 80",
+    "preco": 119.36,
+    "descricao": "Tênis confortável, perfeito para corridas ou caminhadas.",
+    "imagem": "images/tenispumaanos80.jpg",
+    "galeria": [
+      "images/tenispumaanos80.jpg",
+      "images/tenispumaanos802.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Xiaomi Smartband 9",
+    "preco": 162.85,
+    "imagem": "images/smartband1.png",
+    "descricao": "Smartband com recursos fitness e notificações inteligentes.",
+    "galeria": [
+      "images/smartband1.png",
+      "images/smartband2.png",
+      "images/smartband3.png",
+      "images/smartband4.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Camiseta Puma verde",
+    "preco": 249.13,
+    "imagem": "images/camisapumaverde.jpg",
+    "descricao": "Camiseta leve e estilosa, ideal para o dia a dia.",
+    "galeria": [
+      "images/camisapumaverde.jpg",
+      "images/camisapumaverde1.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "Camiseta Puma Branca",
+    "preco": 288.82,
+    "imagem": "images/camisapumabranca.jpg",
+    "descricao": "Camiseta leve e estilosa, ideal para o dia a dia.",
+    "galeria": [
+      "images/camisapumabranca.jpg",
+      "images/camisapumabranca1.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "nome": "Tênis De Caminhada",
+    "preco": 234.68,
+    "imagem": "images/Tenis2-2.jpg",
+    "descricao": "Tênis confortável, perfeito para corridas ou caminhadas.",
+    "galeria": [
+      "images/Tenis2-1.jpg",
+      "images/Tenis2-2.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "Calça Jeans marrom",
+    "preco": 199.17,
+    "imagem": "images/Calca2-2.jpg",
+    "descricao": "Calça com tecido resistente e caimento moderno.",
+    "galeria": [
+      "images/Calca2-2.jpg",
+      "images/Calca2-1.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "nome": "Calça Jeans Cinza",
+    "preco": 189.22,
+    "imagem": "images/Calca1-1.jpg",
+    "descricao": "Calça com tecido resistente e caimento moderno.",
+    "galeria": [
+      "images/Calca1-1.jpg",
+      "images/Calca1-2.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "nome": "Babylook rosa",
+    "preco": 211.14,
+    "imagem": "images/Babylook1-1.jpg",
+    "descricao": "Babylook com modelagem ajustada e tecido macio.",
+    "galeria": [
+      "images/Babylook1-1.jpg",
+      "images/Babylook1-2.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "nome": "Calça de Moletom Preta",
+    "preco": 283.5,
+    "imagem": "images/Calca3-2.jpg",
+    "descricao": "Calça com tecido resistente e caimento moderno.",
+    "galeria": [
+      "images/Calca3-2.jpg",
+      "images/Calca3-1.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "nome": "Blusa de Moletom Ciano",
+    "preco": 103.78,
+    "imagem": "images/Moletom3-1.jpg",
+    "descricao": "Blusa confortável para os dias mais frios.",
+    "galeria": [
+      "images/Moletom3-1.jpg",
+      "images/Moletom3-2.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "nome": "Blusa de Moletom Cinza",
+    "preco": 195.19,
+    "imagem": "images/Moletom2-1.jpg",
+    "descricao": "Blusa confortável para os dias mais frios.",
+    "galeria": [
+      "images/Moletom2-1.jpg",
+      "images/Moletom2-2.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "nome": "Conjunto de Moletom Rosa",
+    "preco": 284.77,
+    "imagem": "images/Moletom1-1.jpg",
+    "descricao": "Conjunto esportivo que une conforto e estilo.",
+    "galeria": [
+      "images/Moletom1-1.jpg",
+      "images/Moletom1-1.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "nome": "Camiseta Puma unisex",
+    "preco": 203.93,
+    "imagem": "images/Camiseta1-1.jpg",
+    "descricao": "Camiseta leve e estilosa, ideal para o dia a dia.",
+    "galeria": [
+      "images/Camiseta1-1.jpg",
+      "images/Camiseta1-2.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "nome": "Tênis branco Puma",
+    "preco": 262.32,
+    "descricao": "Tênis confortável, perfeito para corridas ou caminhadas.",
+    "imagem": "images/tenispumabranco1.jpg",
+    "galeria": [
+      "images/tenispumabranco1.jpg"
+    ]
+  }
+]
