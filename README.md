@@ -2,7 +2,7 @@
 Trabalho final de programação2 seguindo instruções do Prof. Giancarlo
 
 para iniciar o trend-store use:
-npm init -y
+npm install
 npm start
 
 caso necessite instalar as bibliotecas por fora:
